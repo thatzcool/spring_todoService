@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/todo")
@@ -32,6 +33,9 @@ public class TodoController {
     @GetMapping("/list")
     public void list(Model model) {
         log.info("GET list............");
+        List<TodoDTO> dtoList = todoService.getListAll();
+//        model.addAttribute("dtoList", todoService.getListAll());
+        model.addAttribute("dtoList", dtoList);
     }
 
     //TodoController에서는 TodoDTO 로 바로 전달된 파라미터로 값들을 수집한다.
