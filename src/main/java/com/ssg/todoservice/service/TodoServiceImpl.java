@@ -1,0 +1,31 @@
+package com.ssg.todoservice.service;
+
+
+import com.ssg.todoservice.domain.TodoVO;
+import com.ssg.todoservice.dto.TodoDTO;
+import com.ssg.todoservice.mapper.TodoMapper;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+@Service
+@Log4j2
+@RequiredArgsConstructor
+public class TodoServiceImpl implements TodoService {
+    // 스프링컨테이너가 관리하는 빈을 주입 , DTO, VO 변환 작업 서비스 제공
+
+    private final TodoMapper todoMapper;
+    private final ModelMapper modelMapper;
+
+
+    @Override
+    public void register(TodoDTO todoDTO) {
+
+        log.info("register model Mapper injection");
+        TodoVO vo = modelMapper.map(todoDTO, TodoVO.class);
+        log.info(vo);
+        todoMapper.insert(vo);
+
+    }
+}
