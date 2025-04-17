@@ -12,4 +12,7 @@
           select  tno,title,writer,dueDate,finished from tbl_todo order by tno desc
     </select>
 
+    <select id="selectOne" resultType="com.ssg.todoservice.domain.TodoVO">
+        select * from tbl_todo where tno = #{tno}
+    </select>
 </mapper>

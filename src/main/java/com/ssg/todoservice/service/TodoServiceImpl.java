@@ -38,4 +38,12 @@ public class TodoServiceImpl implements TodoService {
 
         return dtoList;
     }
+
+    @Override
+    public TodoDTO getTodoOne(Long tno) {
+
+        TodoVO todoVO = todoMapper.selectOne(tno);
+        TodoDTO     todoDTO = modelMapper.map(todoVO, TodoDTO.class);
+        return todoDTO;
+    }
 }
