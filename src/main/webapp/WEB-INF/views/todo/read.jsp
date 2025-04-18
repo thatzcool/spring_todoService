@@ -26,29 +26,42 @@
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Duedate</span>
-        <input type="date" name="dueDate" class="form-control"  value='<c:out value="${dto.dueDate}"></c:out>' readonly>>
+        <input type="date" name="dueDate" class="form-control"  value='<c:out value="${dto.dueDate}"></c:out>' readonly/>
     </div>
     <div class="input-group mb-3">
         <span class="input-group-text">Writer</span>
-        <input type="text" name="writer" class="form-control"  value='<c:out value="${dto.writer}"></c:out>' readonly>
+        <input type="text" name="writer" class="form-control"  value='<c:out value="${dto.writer}"></c:out>' readonly/>
     </div>
     <div class="form-check">
          <label class="form-check-label">
              Finished &nbsp;
-             <input class="form-check-input" type="checkbox" name="finished" ${dto.finished?"checked":""} disabled>
+             <input class="form-check-input" type="checkbox" name="finished" ${dto.finished?"checked":""} disabled />
          </label>
     </div>
 
     <div class="mb-4">
         <div class="float-end">
-              <button type="button" class="btn btn-primary">수정</button>
-              <button type="button" class="btn btn-secondary">첫화면 돌아가기</button>
+              <button type="button" class="btn btn-primary">Modify</button>
+              <button type="button" class="btn btn-secondary">List</button>
         </div>
-        <span class="input-group-text">Writer</span>
-        <input type="text" name="writer" class="form-control"  value='<c:out value="${dto.writer}"></c:out>' readonly>
+
     </div>
+     <script>
+         document.querySelector(".btn-primary").addEventListener("click",function (e) {
+             self.location = "/todo/modify?tno="+${dto.tno}
+         },false)
+
+         document.querySelector(".btn-secondary").addEventListener("click", function (e) {
+             self.location ="/todo/list";
+         },false)
+         
+         
+         
+         
+     </script>
 
 </div>
+
 
 <!-- Optional JavaScript; choose one of the two! -->
 

@@ -51,11 +51,18 @@ public class TodoController {
         todoService.register(todoDTO);
         return "redirect:/todo/list";
     }
-    @GetMapping("/read")
-    public void readGET(Long tno, Model model) {
-        log.info("GET read..............");
-        TodoDTO dto = todoService.getTodoOne(tno);
-        log.info(dto);
-        model.addAttribute("dto", dto);
+//    @GetMapping("/read")
+//    public void readGET(Long tno, Model model) {
+//        log.info("GET read..............");
+//        TodoDTO dto = todoService.getTodoOne(tno);
+//        log.info(dto);
+//        model.addAttribute("dto", dto);
+//    }
+
+    @GetMapping({"/read", "/modify"})
+    public void read(Long tno, Model model) {
+        TodoDTO todoDTO = todoService.getTodoOne(tno);
+        model.addAttribute("dto",todoDTO);
+
     }
 }
