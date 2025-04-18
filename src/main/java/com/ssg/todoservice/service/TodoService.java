@@ -9,4 +9,6 @@ public interface TodoService {
      void register(TodoDTO todoDTO);
      List<TodoDTO> getListAll();
      TodoDTO getTodoOne(Long tno);
+     void remove(Long tno);
+     void modify(TodoDTO todoDTO);
 }
