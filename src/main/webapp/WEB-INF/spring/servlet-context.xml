@@ -32,4 +32,15 @@ https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframe
 
     </bean>
 
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+           <property name="formatters">
+               <set>
+                   <bean class="com.ssg.todoservice.controller.formatters.CheckboxFormatter"></bean>
+                   <bean class="com.ssg.todoservice.controller.formatters.LocalDateFormatter"></bean>
+
+               </set>
+           </property>
+
+    </bean>
+
 </beans>
